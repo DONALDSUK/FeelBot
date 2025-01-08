@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FeelBot</h1>
+            <h2>실시간 감정 인식 AI</h2>
+        </header>
+        <p>같은 표정을 따라해보세요!</p>
+        <main>
+            <img src="{{ url_for('video') }}" alt="Real-time emotion detection">
+        </main>
+    </div>
+</body>
+</html>
