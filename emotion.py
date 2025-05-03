@@ -13,8 +13,8 @@ model = keras.models.load_model('./model/face_emotion.h5')
 # 이모지 이미지 로드
 image_Angry = cv2.imread('./images/Angry.png', cv2.IMREAD_UNCHANGED)
 image_Disgust = cv2.imread('./images/Disgust.png', cv2.IMREAD_UNCHANGED)
-image_Fear = cv2.imread('./images/Fear.png', cv2.IMREAD_UNCHANGED)  #이미지가 비어있어요! 경로를 설정해주세요
-image_Happy = cv2.imread('./images/Happy.png', cv2.IMREAD_UNCHANGED) #경로 설정이 되었다면 ctrl+s 후 app.py를 실행시켜보세요!
+image_Fear = cv2.imread('./images/Fear.png', cv2.IMREAD_UNCHANGED) 
+image_Happy = cv2.imread('./images/Happy.png', cv2.IMREAD_UNCHANGED)
 image_Sad = cv2.imread('./images/Sad.png', cv2.IMREAD_UNCHANGED)
 image_Surprise = cv2.imread('./images/Surprise.png', cv2.IMREAD_UNCHANGED)
 image_Neutral = cv2.imread('./images/Neutral.png', cv2.IMREAD_UNCHANGED)
