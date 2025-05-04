@@ -74,3 +74,8 @@ venv.bak/
 uploads/
 model/*.h5
 *.log 
+
+# 평가 데이터 및 스크립트
+archive/
+evaluate_model*.py
+confusion_matrix.png 
