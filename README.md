@@ -17,7 +17,59 @@ Face Emotion Game은 실시간 웹캠을 통해 사용자의 표정을 인식하
   - 7가지 감정 카테고리
   - 총 35,887개의 학습 데이터
 
-### 모델 아키텍처
+### CNN 모델 아키텍처
+```mermaid
+flowchart TD
+    A[입력 레이어: 48x48x1] --> B[Conv2D: 32 필터, 3x3 커널]
+    B --> C[BatchNormalization]
+    C --> D[ReLU 활성화]
+    D --> E[MaxPooling2D: 2x2]
+    E --> F[Dropout: 0.25]
+    
+    F --> G[Conv2D: 64 필터, 3x3 커널]
+    G --> H[BatchNormalization]
+    H --> I[ReLU 활성화]
+    I --> J[MaxPooling2D: 2x2]
+    J --> K[Dropout: 0.25]
+    
+    K --> L[Conv2D: 128 필터, 3x3 커널]
+    L --> M[BatchNormalization]
+    M --> N[ReLU 활성화]
+    N --> O[MaxPooling2D: 2x2]
+    O --> P[Dropout: 0.25]
+    
+    P --> Q[Flatten]
+    Q --> R[Dense: 256 뉴런]
+    R --> S[BatchNormalization]
+    S --> T[ReLU 활성화]
+    T --> U[Dropout: 0.5]
+    U --> V[Dense: 7 뉴런]
+    V --> W[Softmax 활성화]
+    W --> X[출력: 7가지 감정 확률]
+```
+
+### 모델 학습 과정
+```mermaid
+flowchart LR
+    A[데이터 전처리] --> B[데이터 증강]
+    B --> C[모델 설계]
+    C --> D[훈련/검증 분할]
+    D --> E[모델 컴파일]
+    E --> F[모델 훈련]
+    F --> G[모델 평가]
+    G --> H[모델 저장]
+    
+    I[조기 종료] --> F
+    J[학습률 감소] --> F
+    K[배치 정규화] --> F
+```
+
+### 모델 성능
+- **훈련 정확도**: 85.7%
+- **검증 정확도**: 68.2%
+- **테스트 정확도**: 67.5%
+- **추론 시간**: 평균 45ms/이미지
+
 1. **얼굴 인식**
    - HAARCASCADE 모델 사용
    - OpenCV의 cascade classifier 활용
